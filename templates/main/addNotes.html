@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <form action="{% url 'addNotes' %}" method="post" enctype="multipart/form-data" class="row g-3">
+
+                {% csrf_token %}
+        
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Title Here">
+                </div>
+        
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Module</label>
+                    <select name="sub" class="form-select" aria-label="Default select example">
+                        {% for x in mod %}
+                            <option value="{{x.name}}">{{x.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                  
+              
+                <div class="mb-3">
+                    <label for="formFileMultiple" class="form-label">Add Files</label>
+                    <input class="form-control" type="file" name="file" id="formFileMultiple" multiple>
+                </div>
+                      
+                <div class="col-12">
+                    <button type="submit" style="width: 10em; font-size: 1em" class="btn btn-primary">Submit</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+   
+{% endblock %}
