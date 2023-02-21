@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container mt-4">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Sr. No</th>
+            <th scope="col">File Name</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for x in notes %}
+            <tr>
+                <td scope="row">{{forloop.counter}}</td>
+                <td>{{x.name}} of {{x.mod}}</td>
+                {% if x.status %}
+                <td style="color: green;">Accepted</td>
+                {% else %}
+                <td style="color: rgb(159, 150, 43);">Under Scrutiny</td>
+                {% endif %}
+                <td><a href="{{x.slug}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+            </tr>
+          {% endfor %}
+      </table>
+</div>
+
+{% endblock %}

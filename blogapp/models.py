@@ -82,6 +82,7 @@ class Notes(models.Model):
     file = models.FileField(upload_to='notes/')
     slug = AutoSlugField(populate_from = 'name',unique=True,null=True,default=None)
     author = models.ForeignKey(UserAccount,on_delete=models.CASCADE)
+    status = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

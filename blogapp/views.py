@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from . models import *
 # Create your views here.
 def home(request):
-    notes = Notes.objects.all()
+    notes = Notes.objects.filter(status = True)
     context = {
         'notes' : notes
     }
@@ -42,3 +42,19 @@ def notes(request):
         'notes' : notes
     }
     return render(request,'main/realHome.html',context)
+
+def status(request):
+
+    notes = Notes.objects.filter(author = request.user)
+    context = {
+        'notes' : notes,
+    }
+
+    return render(request,'main/status.html',context)
+
+def noteDelete(request,slug):
+
+    notes = Notes.objects.filter(slug = slug)
+    notes.delete()
+
+    return redirect('status')
