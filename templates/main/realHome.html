@@ -2,6 +2,7 @@
 {% block content %}
 
 <div class="container mt-4">
+    {% include 'authentication/messages.html' %}
     <div class="row">
         {% for x in notes %}
         <div class="card mt-4 me-4" style="width: 18rem;">
@@ -9,7 +10,7 @@
                 <h5 class="card-title">{{x.mod}}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{x.name}}</h6>
                 <p class="card-text">Thanks to : {{x.author}} </p>
-                <a href="{{x.file.url}}" class="card-link">View PDF</a>
+                <a href="{{x.slug}}" class="card-link">View PDF</a>
             </div>
         </div>
         {% endfor %}

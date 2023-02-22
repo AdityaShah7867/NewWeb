@@ -1,6 +1,7 @@
 {% extends 'index.html' %}
 {% block content %}
 <div class="container mt-4">
+  {% include 'authentication/messages.html' %}
     <table class="table table-hover">
         <thead>
           <tr>
@@ -20,10 +21,34 @@
                 {% else %}
                 <td style="color: rgb(159, 150, 43);">Under Scrutiny</td>
                 {% endif %}
-                <td><a href="{{x.slug}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+                <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{forloop.counter}}">Delete</button></td>
             </tr>
           {% endfor %}
       </table>
+      <!-- Modal -->
+{% for x in notes %}
+<div class="modal fade" id="exampleModal{{forloop.counter}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you Sure you want to delete {{x.name}} of {{x.mod}}?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
+        <a href="{{x.slug}}"><button type="button" class="btn btn-danger">Delete</button></a>
+      </div>
+    </div>
+  </div>
 </div>
+</div>
+{% endfor %}
+<!-- Button trigger modal -->
+
+
+
 
 {% endblock %}

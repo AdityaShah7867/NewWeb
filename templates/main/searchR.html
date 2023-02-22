@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container mt-4">
+
+    <div class="row">
+        <div class="col-12">
+            <h3 class="d-flex justify-content-center align-items-center">Your Search Results for {{ser}}</h3>
+        </div>
+        {% if notes %}
+            <div class="col-12">
+                {% for x in notes %}
+                <div class="card mt-4 me-4" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{x.mod}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{x.name}}</h6>
+                        <p class="card-text">Thanks to : {{x.author}} </p>
+                        <a href="{{x.file.url}}" class="card-link">View PDF</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="col-12">
+                <h2>Seems like no one as uploaded that module</h2>
+            </div>
+        {% endif %}
+    </div>
+
+</div>
+{% endblock %}

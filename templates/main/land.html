@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block content %}
+{% load static %}
+    <div class="container mt-4 d-flex align-items-center justify-content-center h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+            <div class="col-md-8 col-lg-7 col-xl-6">
+                <img src="{% static 'images/back.avif' %}" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-8 col-lg-7 col-xl-6">
+                <div><h3>Get Your Notes</h3></div>
+                <div><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos soluta magni quaerat! Obcaecati, quae minus?</p></div>
+  
+                <div><a href="{% url 'notes' %}"><button class="btn btn-success">Get Now</button></a></div>
+
+                    
+                
+                
+            </div>
+        </div>
+        
+    </div>
+{% endblock %}

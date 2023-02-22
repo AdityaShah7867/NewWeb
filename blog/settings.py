@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 
 from django.conf.urls.static import static
-
+from django.contrib.messages import constants as messages
 from django.conf import settings
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -121,7 +121,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'static')
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -129,6 +132,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'blogapp.UserAccount'
 
+MESSAGE_TAGS = {
+
+    messages.ERROR : 'alert-danger',
+    messages.INFO : 'alert-info',
+    messages.SUCCESS : 'alert-success',
+    messages.WARNING : 'alert-warning',
+
+
+}
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
