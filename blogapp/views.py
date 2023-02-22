@@ -42,7 +42,7 @@ def addNotes(request):
 
 @login_required(login_url='/login/')
 def notes(request):
-    notes = Notes.objects.all()
+    notes = Notes.objects.filter(status = True)
     context = {
         'notes' : notes
     }

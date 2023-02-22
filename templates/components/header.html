@@ -6,7 +6,7 @@
       </button>
       {% if user.is_authenticated %}
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
           </li>
@@ -16,12 +16,11 @@
           <li class="nav-item">
             <a class="nav-link disabled">About us</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown me-4">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Welcome {{user.name}}
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Profile</a></li>
               <li><a class="dropdown-item" href="{% url 'addNotes' %}">Add Notes</a></li>
               <li><a class="dropdown-item" href="{% url 'status' %}">Status</a></li>
               <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
@@ -29,13 +28,6 @@
           </li>
           
         </ul>
-        <form class="d-flex" method="post" role="search" action="{% url 'searchNotes' %}">
-
-          {% csrf_token %}
-          
-          <input class="form-control me-2" type="text" name="searchQ" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
       {% endif %}
     </div>

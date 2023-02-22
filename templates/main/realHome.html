@@ -2,8 +2,15 @@
 {% block content %}
 
 <div class="container mt-4">
-    {% include 'authentication/messages.html' %}
-    <div class="row">
+    <form class="d-flex" method="post" role="search" action="{% url 'searchNotes' %}">
+
+        {% csrf_token %}
+        
+        <input class="form-control me-2" type="text" name="searchQ" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <div class="row d-flex justify-content-center align-items-center">
+        
         {% for x in notes %}
         <div class="card mt-4 me-4" style="width: 18rem;">
             <div class="card-body">
