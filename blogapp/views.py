@@ -13,23 +13,27 @@ def home(request):
 def addNotes(request):
     subj = Subject.objects.all()
     mod = Module.objects.all()
+
     context = {
         'mod' : mod,
         'subj' : subj,
+
     }
 
     if request.method == 'POST':
 
-        title = request.POST.get('title')
+        desc = request.POST.get('desc')
         sub = request.POST.get('sub')
         file = request.FILES.get('file')
+        typeN = request.POST.get('typeN')
 
 
         note = Notes(
-            name = title,
+            desc = desc,
             mod = sub,
             file = file,
-            author = request.user
+            author = request.user,
+            typeN = typeN
         )
 
         note.save()

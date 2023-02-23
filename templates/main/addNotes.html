@@ -8,11 +8,8 @@
 
                 {% csrf_token %}
         
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Title Here">
-                </div>
-        
+                
+
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Module</label>
                     <select name="sub" class="form-select" aria-label="Default select example">
@@ -21,11 +18,27 @@
                         {% endfor %}
                     </select>
                 </div>
+        
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Type</label>
+                    <select name="typeN" class="form-select" aria-label="Default select example">
+                        
+                            <option value="Assignment">Assignment</option>
+                            <option value="Experiment">Experiment</option>
+                            <option value="Notes">Notes</option>
+                    
+                    </select>
+                </div>
                   
               
                 <div class="mb-3">
                     <label for="formFileMultiple" class="form-label">Add Files</label>
                     <input class="form-control" type="file" name="file" id="formFileMultiple" multiple>
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Add Description</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="desc" rows="4"></textarea>
                 </div>
                       
                 <div class="col-12">

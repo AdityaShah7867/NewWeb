@@ -77,12 +77,15 @@ class Module(models.Model):
 
 class Notes(models.Model):
 
-    name = models.CharField(max_length=100)
+
+
+    desc = models.TextField(max_length=500,null=True,blank=True)
     mod = models.CharField(max_length=100)
     file = models.FileField(upload_to='notes/')
     slug = AutoSlugField(populate_from = 'name',unique=True,null=True,default=None)
     author = models.ForeignKey(UserAccount,on_delete=models.CASCADE)
     status = models.BooleanField(default=False)
+    typeN = models.CharField(max_length=50,null=True,blank=True)
 
     def __str__(self):
         return self.name
