@@ -15,7 +15,7 @@
           {% for x in notes %}
             <tr>
                 <td scope="row">{{forloop.counter}}</td>
-                <td>{{x.name}} of {{x.mod}}</td>
+                <td>{{x.typeN}} of {{x.mod}}</td>
                 {% if x.status %}
                 <td style="color: green;">Accepted</td>
                 {% else %}
@@ -35,7 +35,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Are you Sure you want to delete {{x.name}} of {{x.mod}}?
+        Are you Sure you want to delete {{x.typeN}} of {{x.mod}}?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
